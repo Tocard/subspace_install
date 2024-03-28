@@ -1,1 +1,7 @@
 ---
+
+# if your os do not use sudo bu su, change this line
+custom_become_method: sudo
+
+# result of `vgs`. Choose where you want to install the filesystem
+custom_vg_name: olympus

@@ -49,8 +49,36 @@ subspace_02
 - `[subspace]` if a group. keep it as `[susbpace]` for the host targeting.
 - `ansible_host` is what ansible use to connect on remote hosts. can be ip or dns.
 
-Choose what do feat your use case. 
+Choose what do feat your use case.
+
+## Prepare server
+
+### User you need
+
+You will need a user with sudo right on server. We need it for some tasks, like filesystem, user creation, etc etc) Nothing nasty, but read what the playbook does. As awlays, this is a security concern.
+
+### Set remote user for ssh
+
+```shell
+export ANSIBLE_USER=user_from_previous_step
+```
+
+
+
+
+## Configure Ansible
+
+Into `group_vars/all.yml` you will find all configuration requiered. you need to adjust according to your os.`
+
+
+
+
+
 
 ````shell
+make install-requirements
+make install-ansible-dep
 make install-subspace
 ````
+
+Then you will be promptep for two password. This is the password from user in `${ANSIBLE_USER}`. One for SSH, one for become method.
