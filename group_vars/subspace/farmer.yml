@@ -11,3 +11,5 @@ subspace_farmer_filesystem_list:
     path: "{{ subspace_farmer_log_folder }}"
     owner: "{{ subspace_owner }}"
     group: "{{ subspace_group }}"
+
+subspace_farmer_wallet_adress: put_your_wallet_adress_here

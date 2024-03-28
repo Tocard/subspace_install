@@ -87,6 +87,8 @@ inventory/all is to have global config for the whole hosts file
 inventory/subspace is only about susbspace_group into inventory hosts file
 hostsvars is only about the given host into host file.
 
+Don't forget to replace `subspace_farmer_wallet_adress`
+
 ## Run 
 
 ````shell
