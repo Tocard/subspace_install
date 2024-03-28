@@ -69,11 +69,25 @@ export ANSIBLE_USER=user_from_previous_step
 ## Configure Ansible
 
 Into `group_vars/all.yml` you will find all configuration requiered. you need to adjust according to your os.`
+Into `groups_vars/subspace/node.yml` you will find anything relating to node install
+Into `groups_vars/subspace/farmer.yml` you will find anything relating to farmer install
+Into `groups_vars/subspace/commun.yml` you will find anything common between  node & farmer install
 
+Ansible is fully configurable. You can edit whatever you want to feat your usecase. Please refer to [my ansible collection](https://github.com/Tocard/ansible_collection) if you need to overide default variable.
 
+Precedence into ansible allow you to have order of loading. In this sample
 
+groups_vars/all < groups_vars/any < inventory_vars/all < inventory_vars/any < hostsvars
 
+if we want to transpose.
 
+groups_vars/all if your whole global configuration.
+groups_vars/subspace is only about subspace_group into hosts file.
+inventory/all is to have global config for the whole hosts file
+inventory/subspace is only about susbspace_group into inventory hosts file
+hostsvars is only about the given host into host file.
+
+## Run 
 
 ````shell
 make install-requirements

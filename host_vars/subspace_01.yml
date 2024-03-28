@@ -1,54 +1,16 @@
 ---
 
-subspace_node_install_enabled: true
-subspace_node_filesystem_enabled: true
-
-subspace_node_filesystem_list:
-  - lv: lv_subspace_node
-    vg: "{{ custom_vg_name }}"
-    size: 50g
-    path: "{{ subspace_install_path }}"
-    owner: "{{ subspace_owner }}"
-    group: "{{ subspace_group }}"
-    mode: "0750"
-    fstype: xfs
-  - lv: lv_subspace_node_log
-    vg: "{{ custom_vg_name }}"
-    size: 2g
-    path: "{{ subspace_node_log_folder }}"
-    owner: "{{ subspace_owner }}"
-    group: "{{ subspace_group }}"
-    mode: "0750"
-    fstype: xfs
-
-subspace_operator_install_enabled: false
-subspace_operator_filesystem_enabled: false
-
-subspace_farmer_install_enabled: true
-subspace_farmer_filesystem_enable: true
-
-subspace_farmer_filesystem_list:
-  - lv: lv_subspace_farmer_log
-    vg: "{{ custom_vg_name }}"
-    size: 2g
-    path: "{{ subspace_farmer_log_folder }}"
-    owner: "{{ subspace_owner }}"
-    group: "{{ subspace_group }}"
-
-subspace_farmer_filesystem_list:
-  - lv: lv_subspace_farmer_log
-    vg: "{{ custom_vg_name }}"
-    size: 2g
-    path: "{{ subspace_farmer_log_folder }}"
-    owner: "{{ subspace_owner }}"
-    group: "{{ subspace_group }}"
-
-
+subspace_farmer_directories:
+  - path: "{{ subspace_farmer_install_path }}"
+  - path: "{{ subspace_farmer_log_folder }}"
+  - path: "{{ subspace_farmer_install_path }}/subspace_001"
+  - path: "{{ subspace_farmer_install_path }}/subspace_002"
+  - path: "{{ subspace_farmer_install_path }}/subspace_003"
 
 subspace_farmer_disks:
-  - path=/mnt/subspace_001,size=1G
-  - path=/mnt/subspace_002,size=1G
-  - path=/mnt/subspace_003,size=1G
+  - "path={{ subspace_farmer_install_path }}/subspace_001,size=1G"
+  - "path={{ subspace_farmer_install_path }}/subspace_002,size=1G"
+  - "path={{ subspace_farmer_install_path }}/subspace_003,size=1G"
 
 
 

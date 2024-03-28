@@ -1,0 +1,22 @@
+---
+
+subspace_node_install_enabled: true
+subspace_node_filesystem_enabled: true
+
+subspace_node_filesystem_list:
+  - lv: lv_subspace_node
+    vg: "{{ custom_vg_name }}"
+    size: 50g
+    path: "{{ subspace_install_path }}"
+    owner: "{{ subspace_owner }}"
+    group: "{{ subspace_group }}"
+    mode: "0750"
+    fstype: xfs
+  - lv: lv_subspace_node_log
+    vg: "{{ custom_vg_name }}"
+    size: 2g
+    path: "{{ subspace_node_log_folder }}"
+    owner: "{{ subspace_owner }}"
+    group: "{{ subspace_group }}"
+    mode: "0750"
+    fstype: xfs

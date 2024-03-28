@@ -1,0 +1,13 @@
+---
+
+
+subspace_farmer_install_enabled: true
+subspace_farmer_filesystem_enable: true
+
+subspace_farmer_filesystem_list:
+  - lv: lv_subspace_farmer_log
+    vg: "{{ custom_vg_name }}"
+    size: 2g
+    path: "{{ subspace_farmer_log_folder }}"
+    owner: "{{ subspace_owner }}"
+    group: "{{ subspace_group }}"
