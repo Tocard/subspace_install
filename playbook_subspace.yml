@@ -1,0 +1,10 @@
+---
+#==================================================================
+# Subspace Automatic Deployment
+#==================================================================
+- hosts: subspace # that's the groupe from hosts
+  roles:
+    - role: tocard.utils.subspace # this is the role subspace from the collections installed with make install-ansible-dep
+      tags:
+        - subspace
+
