@@ -20,7 +20,12 @@ install-requirements: create-venv
 	$(VENV_NAME)/bin/pip install -r requirements.txt
 
 install-ansible-dep:
-	source $(VENV_NAME)/bin/activate; ansible-galaxy collection install tocard.utils -p collection/ -U
+	. $(VENV_NAME)/bin/activate; ansible-galaxy collection install community.general -p collection/
+	. $(VENV_NAME)/bin/activate; ansible-galaxy collection install tocard.utils -p collection/
+
+update-ansible-dep:
+	. $(VENV_NAME)/bin/activate; ansible-galaxy collection install community.general -p collection/ -U
+	. $(VENV_NAME)/bin/activate; ansible-galaxy collection install tocard.utils -p collection/ -U
 
 install-subspace:
 	source $(VENV_NAME)/bin/activate;  ansible-playbook playbook_subspace.yml -i inventory/hosts -k -K -v --user ${ANSIBLE_USER} -c paramiko -D --tags subspace
